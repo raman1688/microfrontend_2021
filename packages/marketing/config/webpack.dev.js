@@ -5,12 +5,15 @@ const commonConfig = require('./webpack.common');
 const packageJSON = require('../package.json');
 
 const devConfig = {
-    mode: 'development',
-    devServer: {
-        port: 8081,
-        historyApiFallback: {
-            index: 'index.html'
-        }
+  mode: 'development',
+  output: {
+    publicPath: 'http://localhost:8081/',
+  },
+  devServer: {
+      port: 8081,
+      historyApiFallback: {
+        index: 'index.html',
+      },
     },
     plugins: [
         new ModuleFederationPlugin({
